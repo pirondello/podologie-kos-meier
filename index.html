@@ -50,7 +50,6 @@
     .modal{background:var(--cream);border-radius:20px;box-shadow:0 24px 80px rgba(0,0,0,.4);padding:32px;width:100%;max-width:520px;max-height:90vh;overflow-y:auto;-webkit-overflow-scrolling:touch;background-size:cover;background-position:center}
     .modal h2{font-family:'DM Serif Display',Georgia,serif;font-size:20px;color:var(--indigo);margin-bottom:20px}
     @keyframes fadeIn{from{opacity:0}to{opacity:1}}@keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
-
     #page-landing{min-height:100dvh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:40px 20px;position:relative;overflow-y:auto}
     .landing-bg{position:absolute;inset:0;opacity:.18;z-index:0;pointer-events:none}
     .landing-inner{position:relative;z-index:1;width:100%;max-width:800px;display:flex;flex-direction:column;gap:16px;animation:fadeUp .7s var(--tr) both}
@@ -80,7 +79,6 @@
     .map-link{display:inline-flex;align-items:center;gap:4px;margin-top:8px;font-size:12px;color:var(--text-muted);font-weight:500;transition:color var(--tr)}.map-link:hover{color:var(--indigo)}
     .landing-footer{display:flex;align-items:center;justify-content:center;gap:16px;font-size:11px;color:rgba(255,255,255,.4);flex-wrap:wrap}
     .admin-trigger{opacity:.25;cursor:default;font-size:12px;padding:6px;border-radius:50%;transition:opacity .4s ease;user-select:none;-webkit-user-select:none}.admin-trigger:hover{opacity:.5;cursor:pointer}
-
     #page-booking{display:none;min-height:100dvh;overflow-y:auto;-webkit-overflow-scrolling:touch;padding:env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left)}
     .bk-header{text-align:center;padding:28px 20px 16px;color:white}.bk-header h1{font-family:'DM Serif Display',Georgia,serif;font-size:clamp(20px,3.5vw,28px);font-weight:400;margin-bottom:4px}.bk-header p{font-size:14px;opacity:.7;margin-bottom:14px}
     .bk-card{max-width:960px;margin:0 auto 32px;padding:28px;background:rgba(240,241,247,.9);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-radius:20px;box-shadow:0 24px 60px rgba(0,0,0,.35);background-size:cover;background-position:center}
@@ -104,8 +102,6 @@
     .wl-card{padding:16px;margin-bottom:10px;display:flex;justify-content:space-between;align-items:flex-start;gap:14px;flex-wrap:wrap}.wl-info{flex:1;min-width:200px}.wl-name{font-weight:700;font-size:15px;color:var(--indigo)}
     .wl-detail{font-size:13px;color:var(--text-muted);margin-top:4px;line-height:1.6}.wl-detail span{display:inline-block;margin-right:12px}.wl-date{font-size:11px;color:var(--border);margin-top:6px}.wl-actions{display:flex;gap:6px;flex-shrink:0;align-items:flex-start}
     .wl-badge{display:inline-block;padding:3px 10px;border-radius:50px;font-size:11px;font-weight:700}.wl-badge.neu{background:rgba(243,156,18,.15);color:var(--warning)}.wl-badge.kontaktiert{background:rgba(39,174,96,.12);color:var(--success)}.wl-empty{text-align:center;padding:40px;color:var(--text-muted);font-size:14px}
-
-    /* Mini-Wochenansicht im Edit-Modal */
     .se-week{display:grid;grid-template-columns:repeat(5,1fr);gap:4px;margin-bottom:18px;padding:12px;background:rgba(255,255,255,.3);border-radius:var(--radius-sm);border:1px solid rgba(192,196,224,.3)}
     .se-day{font-size:10px;text-align:center}.se-day-head{font-weight:700;color:var(--indigo);margin-bottom:4px;font-size:11px}.se-day-date{color:var(--text-muted);margin-bottom:6px;font-size:10px}
     .se-slot{padding:4px 2px;border-radius:4px;margin-bottom:2px;font-size:10px;font-weight:600;cursor:pointer;transition:all var(--tr)}
@@ -113,7 +109,6 @@
     .se-slot.se-booked{background:rgba(192,57,43,.08);color:var(--danger);opacity:.5;cursor:default}
     .se-slot.se-current{background:var(--indigo);color:white;font-weight:700}
     .se-slot.se-selected{background:var(--success);color:white;font-weight:700}
-
     #page-admin{display:none;height:100dvh;padding:env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left)}
     .admin-layout{display:grid;grid-template-columns:280px 1fr;grid-template-rows:auto 1fr;height:100%;overflow:hidden;background:var(--cream);background-size:cover;background-position:center}
     .admin-header{grid-column:1/-1;display:flex;align-items:center;justify-content:space-between;padding:10px 20px;gap:12px;z-index:10;border-radius:0}
@@ -239,68 +234,48 @@ const Admin={kunden:[],current:null,filter:'all',weekOff:0,
     o.innerHTML=`<div class="modal" data-bg><h2>📅 ${H.fmt(datum)} · ${zeit} Uhr</h2><h3 style="font-family:'DM Serif Display',Georgia,serif;font-size:16px;color:var(--success);margin-bottom:10px">Buchung</h3>${buchHtml}${!hasBuchung?`<button class="btn btn-primary btn-sm" style="margin:10px 0" onclick="document.getElementById('slot-modal').remove();Admin.openSlotBook('${datum}','${zeit}')">＋ Termin manuell eintragen</button>`:''}<h3 style="font-family:'DM Serif Display',Georgia,serif;font-size:16px;color:var(--warning);margin:20px 0 10px">🕐 Warteliste (${wlItems.length})</h3>${wlHtml}<div class="btn-group" style="margin-top:20px;justify-content:flex-end"><button class="btn btn-secondary" onclick="document.getElementById('slot-modal').remove()">Schliessen</button></div></div>`;
     document.body.appendChild(o);applyBg()},
 
-  /* ── Edit mit Mini-Wochenansicht ── */
-  async editSlotBuchung(id,datum,zeit){
-    const b=await DB.get('buchungen',id);if(!b)return;
-    document.getElementById('slot-modal').remove();
-    this.slotTreat=b.behandlungId||null;
-    const allBuch=await DB.getAll('buchungen');
-    const mon=H.monday(new Date(datum));
-    let weekHtml='<div class="se-week">';
-    for(let i=0;i<5;i++){
-      const d=new Date(mon);d.setDate(d.getDate()+i);const iso=d.toISOString().split('T')[0];
-      weekHtml+=`<div class="se-day"><div class="se-day-head">${['Mo','Di','Mi','Do','Fr'][i]}</div><div class="se-day-date">${H.fmt(iso)}</div>`;
-      for(const s of SLOTS){
-        const isBooked=allBuch.some(x=>x.datum===iso&&x.zeit===s&&x.id!==id);
-        const isCurrent=iso===b.datum&&s===b.zeit;
+  async editSlotBuchung(id,datum,zeit){const b=await DB.get('buchungen',id);if(!b)return;document.getElementById('slot-modal').remove();this.slotTreat=b.behandlungId||null;const allBuch=await DB.getAll('buchungen');const mon=H.monday(new Date(datum));
+    let weekHtml='<div class="se-week">';for(let i=0;i<5;i++){const d=new Date(mon);d.setDate(d.getDate()+i);const iso=d.toISOString().split('T')[0];weekHtml+=`<div class="se-day"><div class="se-day-head">${['Mo','Di','Mi','Do','Fr'][i]}</div><div class="se-day-date">${H.fmt(iso)}</div>`;
+      for(const s of SLOTS){const isBooked=allBuch.some(x=>x.datum===iso&&x.zeit===s&&x.id!==id);const isCurrent=iso===b.datum&&s===b.zeit;
         if(isCurrent){weekHtml+=`<div class="se-slot se-current" data-d="${iso}" data-z="${s}" onclick="Admin.pickEditSlot('${iso}','${s}')">${s} ★</div>`}
         else if(isBooked){weekHtml+=`<div class="se-slot se-booked">${s}</div>`}
-        else{weekHtml+=`<div class="se-slot se-free" data-d="${iso}" data-z="${s}" onclick="Admin.pickEditSlot('${iso}','${s}')">${s}</div>`}
-      }
-      weekHtml+=`</div>`;
-    }
-    weekHtml+=`</div>`;
+        else{weekHtml+=`<div class="se-slot se-free" data-d="${iso}" data-z="${s}" onclick="Admin.pickEditSlot('${iso}','${s}')">${s}</div>`}}weekHtml+=`</div>`}weekHtml+=`</div>`;
     const o=document.createElement('div');o.className='modal-overlay';o.id='slot-edit-modal';
-    o.innerHTML=`<div class="modal" data-bg style="max-width:620px">
-      <h2>✏️ Termin ändern</h2>
-      <div style="font-size:13px;color:var(--text-muted);margin-bottom:12px">Klicke auf einen freien Slot oder ändere Datum/Zeit manuell. <span style="color:var(--indigo);font-weight:700">★ = aktuell</span> · <span style="color:var(--success);font-weight:700">● = neu gewählt</span></div>
-      ${weekHtml}
-      <div class="field-row">
-        <div class="field"><label>Datum</label><input id="se-datum" type="date" value="${b.datum}"></div>
-        <div class="field"><label>Zeit</label><select id="se-zeit" style="padding:12px 14px;border:1.5px solid var(--border);border-radius:var(--radius-sm);background:rgba(255,255,255,.7);font-size:16px">${SLOTS.map(s=>`<option value="${s}"${s===b.zeit?' selected':''}>${s}</option>`).join('')}</select></div>
-      </div>
-      <div class="field"><label>Behandlung</label></div>
-      <div class="bk-treat-grid" id="se-treats">${TREATMENTS.map(t=>`<div class="bk-treat${t.id===b.behandlungId?' selected':''}" data-tid="${t.id}" onclick="Admin.pickSlotTreat('${t.id}','se-treats')"><span class="bk-treat-name">${t.name}</span><span class="bk-treat-dur">${t.dur}</span></div>`).join('')}</div>
-      <div class="field-row"><div class="field"><label>Vorname</label><input id="se-vorname" value="${H.esc(b.vorname)}"></div><div class="field"><label>Nachname</label><input id="se-nachname" value="${H.esc(b.nachname)}"></div></div>
-      <div class="field"><label>Telefon</label><input id="se-telefon" type="tel" value="${H.esc(b.telefon)}"></div>
-      <div class="field"><label>Anmerkung</label><textarea id="se-anmerkung" rows="2" style="min-height:50px">${H.esc(b.anmerkung||'')}</textarea></div>
-      <div class="btn-group" style="justify-content:space-between">
-        <button class="btn btn-secondary" onclick="document.getElementById('slot-edit-modal').remove();Admin.openSlotModal('${datum}','${zeit}')">Abbrechen</button>
-        <button class="btn btn-success" onclick="Admin.saveSlotEdit('${b.id}','${datum}','${zeit}')">✓ Speichern</button></div></div>`;
+    o.innerHTML=`<div class="modal" data-bg style="max-width:620px"><h2>✏️ Termin ändern</h2><div style="font-size:13px;color:var(--text-muted);margin-bottom:12px">Klicke auf einen freien Slot oder ändere Datum/Zeit manuell. <span style="color:var(--indigo);font-weight:700">★ = aktuell</span> · <span style="color:var(--success);font-weight:700">● = neu gewählt</span></div>${weekHtml}<div class="field-row"><div class="field"><label>Datum</label><input id="se-datum" type="date" value="${b.datum}"></div><div class="field"><label>Zeit</label><select id="se-zeit" style="padding:12px 14px;border:1.5px solid var(--border);border-radius:var(--radius-sm);background:rgba(255,255,255,.7);font-size:16px">${SLOTS.map(s=>`<option value="${s}"${s===b.zeit?' selected':''}>${s}</option>`).join('')}</select></div></div><div class="field"><label>Behandlung</label></div><div class="bk-treat-grid" id="se-treats">${TREATMENTS.map(t=>`<div class="bk-treat${t.id===b.behandlungId?' selected':''}" data-tid="${t.id}" onclick="Admin.pickSlotTreat('${t.id}','se-treats')"><span class="bk-treat-name">${t.name}</span><span class="bk-treat-dur">${t.dur}</span></div>`).join('')}</div><div class="field-row"><div class="field"><label>Vorname</label><input id="se-vorname" value="${H.esc(b.vorname)}"></div><div class="field"><label>Nachname</label><input id="se-nachname" value="${H.esc(b.nachname)}"></div></div><div class="field"><label>Telefon</label><input id="se-telefon" type="tel" value="${H.esc(b.telefon)}"></div><div class="field"><label>Anmerkung</label><textarea id="se-anmerkung" rows="2" style="min-height:50px">${H.esc(b.anmerkung||'')}</textarea></div><div class="btn-group" style="justify-content:space-between"><button class="btn btn-secondary" onclick="document.getElementById('slot-edit-modal').remove();Admin.openSlotModal('${datum}','${zeit}')">Abbrechen</button><button class="btn btn-success" onclick="Admin.saveSlotEdit('${b.id}','${datum}','${zeit}')">✓ Speichern</button></div></div>`;
     document.body.appendChild(o);applyBg()},
 
-  pickEditSlot(datum,zeit){
-    document.getElementById('se-datum').value=datum;
-    document.getElementById('se-zeit').value=zeit;
-    // Reset alle Slots visuell
+  pickEditSlot(datum,zeit){document.getElementById('se-datum').value=datum;document.getElementById('se-zeit').value=zeit;
     document.querySelectorAll('.se-slot.se-selected').forEach(el=>{el.classList.remove('se-selected');el.classList.add('se-free');el.textContent=el.dataset.z});
-    // Markiere neuen Slot
-    document.querySelectorAll('.se-slot.se-free, .se-slot.se-current').forEach(el=>{
-      if(el.dataset.d===datum&&el.dataset.z===zeit&&!el.classList.contains('se-current')){
-        el.classList.remove('se-free');el.classList.add('se-selected');el.textContent=zeit+' ●';
-      }
-    });
-    H.toast(`${H.fmt(datum)} ${zeit} gewählt`);
-  },
+    document.querySelectorAll('.se-slot.se-free, .se-slot.se-current').forEach(el=>{if(el.dataset.d===datum&&el.dataset.z===zeit&&!el.classList.contains('se-current')){el.classList.remove('se-free');el.classList.add('se-selected');el.textContent=zeit+' ●'}});
+    H.toast(`${H.fmt(datum)} ${zeit} gewählt`)},
 
-  async saveSlotEdit(id,origDatum,origZeit){const vn=document.getElementById('se-vorname').value.trim(),nn=document.getElementById('se-nachname').value.trim(),tel=document.getElementById('se-telefon').value.trim();if(!vn||!nn||!tel){H.toast('Name und Telefon eingeben','error');return}const newDatum=document.getElementById('se-datum').value,newZeit=document.getElementById('se-zeit').value;if(!newDatum){H.toast('Datum eingeben','error');return}const t=TREATMENTS.find(x=>x.id===this.slotTreat);const b=await DB.get('buchungen',id);if(!b)return;b.datum=newDatum;b.zeit=newZeit;b.vorname=vn;b.nachname=nn;b.telefon=tel;b.behandlung=t?t.name:b.behandlung;b.behandlungId=this.slotTreat||b.behandlungId;b.anmerkung=document.getElementById('se-anmerkung').value.trim();b.geaendert=new Date().toISOString();await DB.put('buchungen',b);document.getElementById('slot-edit-modal').remove();this.renderWeek();this.renderBuchungen();H.toast('✅ Termin geändert')},
+  async saveSlotEdit(id,origDatum,origZeit){const vn=document.getElementById('se-vorname').value.trim(),nn=document.getElementById('se-nachname').value.trim(),tel=document.getElementById('se-telefon').value.trim();if(!vn||!nn||!tel){H.toast('Name und Telefon eingeben','error');return}const newDatum=document.getElementById('se-datum').value,newZeit=document.getElementById('se-zeit').value;if(!newDatum){H.toast('Datum eingeben','error');return}const t=TREATMENTS.find(x=>x.id===this.slotTreat);const b=await DB.get('buchungen',id);if(!b)return;b.datum=newDatum;b.zeit=newZeit;b.vorname=vn;b.nachname=nn;b.telefon=tel;b.behandlung=t?t.name:b.behandlung;b.behandlungId=this.slotTreat||b.behandlungId;b.anmerkung=document.getElementById('se-anmerkung').value.trim();b.geaendert=new Date().toISOString();
+    await DB.put('buchungen',b);document.getElementById('slot-edit-modal').remove();
+    if(newDatum!==origDatum||newZeit!==origZeit){await this.promoteFromWaitlist(origDatum,origZeit)}
+    this.renderWeek();this.renderBuchungen();this.renderWarteliste();H.toast('✅ Termin geändert')},
 
   async openSlotBook(datum,zeit){const o=document.createElement('div');o.className='modal-overlay';o.id='slot-book-modal';o.innerHTML=`<div class="modal" data-bg><h2>＋ Termin eintragen</h2><div class="bk-modal-info"><div class="bk-mi-date">${H.fmt(datum)}</div><div class="bk-mi-time">${zeit} Uhr</div></div><div class="field"><label>Behandlung</label></div><div class="bk-treat-grid" id="admin-treats">${TREATMENTS.map(t=>`<div class="bk-treat" data-tid="${t.id}" onclick="Admin.pickSlotTreat('${t.id}','admin-treats')"><span class="bk-treat-name">${t.name}</span><span class="bk-treat-dur">${t.dur}</span></div>`).join('')}</div><div class="field-row"><div class="field"><label>Vorname *</label><input id="sb-vorname"></div><div class="field"><label>Nachname *</label><input id="sb-nachname"></div></div><div class="field"><label>Telefon *</label><input id="sb-telefon" type="tel"></div><div class="field"><label>Anmerkung</label><textarea id="sb-anmerkung" rows="2" style="min-height:50px"></textarea></div><div class="btn-group" style="justify-content:space-between"><button class="btn btn-secondary" onclick="document.getElementById('slot-book-modal').remove()">Abbrechen</button><button class="btn btn-success" onclick="Admin.confirmSlotBook('${datum}','${zeit}')">✓ Eintragen</button></div></div>`;document.body.appendChild(o);applyBg();setTimeout(()=>{const f=document.getElementById('sb-vorname');if(f)f.focus()},100)},
   slotTreat:null,
   pickSlotTreat(id,container){this.slotTreat=id;const c=container||'admin-treats';document.querySelectorAll('#'+c+' .bk-treat').forEach(el=>{el.classList.toggle('selected',el.dataset.tid===id)})},
   async confirmSlotBook(datum,zeit){const vn=document.getElementById('sb-vorname').value.trim(),nn=document.getElementById('sb-nachname').value.trim(),tel=document.getElementById('sb-telefon').value.trim();if(!vn||!nn||!tel){H.toast('Name und Telefon eingeben','error');return}const t=TREATMENTS.find(x=>x.id===this.slotTreat);await DB.put('buchungen',{id:Date.now().toString(),datum,zeit,behandlung:t?t.name:'',behandlungId:this.slotTreat||'',vorname:vn,nachname:nn,telefon:tel,email:'',anmerkung:document.getElementById('sb-anmerkung').value.trim(),status:'bestätigt',erstellt:new Date().toISOString()});document.getElementById('slot-book-modal').remove();this.renderWeek();H.toast('✅ Termin eingetragen')},
 
-  async delSlotBuchung(id,datum,zeit){if(!confirm('Buchung stornieren?'))return;await DB.del('buchungen',id);document.getElementById('slot-modal').remove();this.renderWeek();this.renderBuchungen();H.toast('Buchung storniert')},
+  /* ── Warteliste-Nachrücken (FIFO) ── */
+  async promoteFromWaitlist(datum,zeit){
+    const wl=(await DB.getAll('warteliste')).filter(w=>w.datum===datum&&w.zeit===zeit&&w.status==='neu');
+    if(!wl.length)return null;
+    wl.sort((a,b)=>a.erstellt.localeCompare(b.erstellt));
+    const w=wl[0];
+    const b={id:Date.now().toString(),datum:w.datum,zeit:w.zeit,behandlung:w.behandlung||'',behandlungId:w.behandlungId||'',
+      vorname:w.vorname,nachname:w.nachname,telefon:w.telefon,email:'',
+      anmerkung:w.anmerkung?(w.anmerkung+' (von Warteliste)').trim():'Von Warteliste',
+      status:'bestätigt',erstellt:new Date().toISOString()};
+    await DB.put('buchungen',b);
+    await DB.del('warteliste',w.id);
+    H.toast(`🎉 ${w.vorname} ${w.nachname} von Warteliste nachgerückt!`);
+    return w;
+  },
+
+  async delSlotBuchung(id,datum,zeit){if(!confirm('Buchung stornieren?'))return;await DB.del('buchungen',id);document.getElementById('slot-modal').remove();await this.promoteFromWaitlist(datum,zeit);this.renderWeek();this.renderBuchungen();this.renderWarteliste()},
   async markWlFromSlot(id,datum,zeit){const e=await DB.get('warteliste',id);if(!e)return;e.status='kontaktiert';e.kontaktiert=new Date().toISOString();await DB.put('warteliste',e);document.getElementById('slot-modal').remove();this.openSlotModal(datum,zeit);H.toast('✓ Kontaktiert')},
   async delWlFromSlot(id,datum,zeit){if(!confirm('Eintrag löschen?'))return;await DB.del('warteliste',id);document.getElementById('slot-modal').remove();this.openSlotModal(datum,zeit);H.toast('Gelöscht')},
 
