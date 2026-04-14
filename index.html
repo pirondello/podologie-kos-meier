@@ -5,66 +5,39 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, viewport-fit=cover">
   <title>Podologie Kos-Meier – Medizinische Fusspflege in Sissach</title>
   <meta name="description" content="Podologie Kos-Meier in Sissach – Medizinische Fusspflege, Nagelkorrektur, Diabetikerbehandlung und mehr. Seit 1997.">
-
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="apple-mobile-web-app-title" content="Podologie">
   <link rel="apple-touch-icon" href="logo.png">
   <link rel="manifest" href="manifest.json">
-
   <script src="https://cdn.sheetjs.com/xlsx-0.20.3/package/dist/xlsx.full.min.js"></script>
-
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-
   <style>
-    :root {
-      --indigo:#3a3a8c;--indigo-dark:#1a1a3e;--indigo-light:#5555aa;
-      --indigo-pale:#e8e9f5;--indigo-mid:#b8bce0;
-      --cream:#f0f1f7;--white:#fff;--text:#1a1a3e;--text-muted:#5a5a8a;
-      --border:#c0c4e0;
-      --danger:#c0392b;--danger-light:#e74c3c;
-      --success:#27ae60;--success-light:#2ecc71;
-      --warning:#f39c12;--orange:#e67e22;--purple:#8e44ad;
-      --radius:14px;--radius-sm:10px;
-      --shadow:0 8px 30px rgba(26,26,62,.10);
-      --tr:.25s cubic-bezier(.4,0,.2,1);
-    }
+    :root{--indigo:#3a3a8c;--indigo-dark:#1a1a3e;--indigo-light:#5555aa;--indigo-pale:#e8e9f5;--indigo-mid:#b8bce0;--cream:#f0f1f7;--white:#fff;--text:#1a1a3e;--text-muted:#5a5a8a;--border:#c0c4e0;--danger:#c0392b;--danger-light:#e74c3c;--success:#27ae60;--success-light:#2ecc71;--warning:#f39c12;--orange:#e67e22;--purple:#8e44ad;--radius:14px;--radius-sm:10px;--shadow:0 8px 30px rgba(26,26,62,.10);--tr:.25s cubic-bezier(.4,0,.2,1)}
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
     html{scroll-behavior:smooth}
-    body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Helvetica Neue',sans-serif;
-      background:linear-gradient(160deg,var(--indigo),var(--indigo-dark));
-      min-height:100dvh;color:var(--text);-webkit-font-smoothing:antialiased;
-      touch-action:manipulation;overflow:hidden}
+    body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Helvetica Neue',sans-serif;background:linear-gradient(160deg,var(--indigo),var(--indigo-dark));min-height:100dvh;color:var(--text);-webkit-font-smoothing:antialiased;touch-action:manipulation;overflow:hidden}
     input,textarea,select,button{font-family:inherit;font-size:16px}
     a{color:var(--indigo);text-decoration:none}
     .hidden{display:none!important}
-    .glass{background:rgba(255,255,255,.55);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
-      border:1px solid rgba(192,196,224,.4);border-radius:var(--radius)}
+    .glass{background:rgba(255,255,255,.55);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border:1px solid rgba(192,196,224,.4);border-radius:var(--radius)}
     .glass-dark{background:rgba(58,58,140,.92);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);color:white}
-
     .btn{display:inline-flex;align-items:center;gap:8px;padding:12px 22px;border-radius:50px;font-size:15px;font-weight:600;cursor:pointer;border:none;transition:all var(--tr);min-height:44px;white-space:nowrap}
     .btn-sm{padding:8px 16px;font-size:13px;min-height:36px}
-    .btn-primary{background:var(--indigo);color:white;box-shadow:0 4px 16px rgba(58,58,140,.25)}
-    .btn-primary:hover{background:var(--indigo-light);transform:translateY(-1px)}
-    .btn-secondary{background:rgba(255,255,255,.6);color:var(--indigo);border:1.5px solid var(--border)}
-    .btn-secondary:hover{background:rgba(255,255,255,.9)}
-    .btn-danger{background:var(--danger);color:white}
-    .btn-danger:hover{background:var(--danger-light)}
-    .btn-success{background:var(--success);color:white}
-    .btn-success:hover{background:var(--success-light)}
-    .btn-ghost{background:transparent;color:white;border:1px solid rgba(255,255,255,.25)}
-    .btn-ghost:hover{background:rgba(255,255,255,.15)}
+    .btn-primary{background:var(--indigo);color:white;box-shadow:0 4px 16px rgba(58,58,140,.25)}.btn-primary:hover{background:var(--indigo-light);transform:translateY(-1px)}
+    .btn-secondary{background:rgba(255,255,255,.6);color:var(--indigo);border:1.5px solid var(--border)}.btn-secondary:hover{background:rgba(255,255,255,.9)}
+    .btn-danger{background:var(--danger);color:white}.btn-danger:hover{background:var(--danger-light)}
+    .btn-success{background:var(--success);color:white}.btn-success:hover{background:var(--success-light)}
+    .btn-ghost{background:transparent;color:white;border:1px solid rgba(255,255,255,.25)}.btn-ghost:hover{background:rgba(255,255,255,.15)}
     .btn-group{display:flex;gap:10px;flex-wrap:wrap}
-
     .field{margin-bottom:14px}
     .field label{display:block;font-size:12px;font-weight:700;color:var(--text-muted);text-transform:uppercase;letter-spacing:.5px;margin-bottom:5px}
     .field input,.field textarea,.field select{width:100%;padding:12px 14px;border:1.5px solid var(--border);border-radius:var(--radius-sm);background:rgba(255,255,255,.7);color:var(--text);outline:none;transition:all var(--tr)}
     .field input:focus,.field textarea:focus,.field select:focus{border-color:var(--indigo);box-shadow:0 0 0 3px rgba(58,58,140,.1);background:rgba(255,255,255,.95)}
     .field textarea{resize:vertical;min-height:80px}
     .field-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-
     .radio-group{display:flex;flex-wrap:wrap;gap:10px;margin-top:8px}
     .radio-item{display:flex;align-items:center;justify-content:space-between;gap:10px;flex:1;min-width:150px;padding:10px 14px;border-radius:var(--radius-sm);background:rgba(255,255,255,.5);border:1px solid var(--border)}
     .radio-item-label{font-size:13px;font-weight:600;color:var(--text)}
@@ -72,27 +45,21 @@
     .radio-options label{padding:4px 10px;border-radius:50px;border:1.5px solid var(--border);font-size:11px;font-weight:600;cursor:pointer;transition:all var(--tr);color:var(--text-muted);background:rgba(255,255,255,.6)}
     .radio-options label:has(input:checked){background:var(--indigo);color:white;border-color:var(--indigo)}
     .radio-options input{display:none}
-
     .flag{padding:3px 10px;border-radius:50px;font-size:11px;font-weight:700;color:white;display:inline-block}
-    .flag-diabetes{background:var(--danger)}.flag-antikoag{background:var(--warning)}
-    .flag-allergien{background:var(--orange)}.flag-hiv{background:var(--purple)}
+    .flag-diabetes{background:var(--danger)}.flag-antikoag{background:var(--warning)}.flag-allergien{background:var(--orange)}.flag-hiv{background:var(--purple)}
     .dot{width:8px;height:8px;border-radius:50%;display:inline-block}
-    .dot-diabetes{background:var(--danger)}.dot-antikoag{background:var(--warning)}
-    .dot-allergien{background:var(--orange)}.dot-hiv{background:var(--purple)}
-
+    .dot-diabetes{background:var(--danger)}.dot-antikoag{background:var(--warning)}.dot-allergien{background:var(--orange)}.dot-hiv{background:var(--purple)}
     .toast-container{position:fixed;bottom:24px;right:24px;z-index:9999;display:flex;flex-direction:column;gap:8px}
     .toast{padding:14px 22px;background:var(--indigo-dark);color:white;border-radius:50px;font-size:14px;font-weight:600;box-shadow:0 8px 30px rgba(0,0,0,.3);animation:toastIn .3s ease,toastOut .3s ease 2.7s forwards}
     .toast.success{background:var(--success)}.toast.error{background:var(--danger)}
     @keyframes toastIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
     @keyframes toastOut{to{opacity:0;transform:translateY(20px)}}
-
     .modal-overlay{position:fixed;inset:0;background:rgba(26,26,62,.6);backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px);z-index:1000;display:flex;align-items:center;justify-content:center;padding:24px;animation:fadeIn .2s ease}
     .modal{background:var(--cream);border-radius:20px;box-shadow:0 24px 80px rgba(0,0,0,.4);padding:32px;width:100%;max-width:520px;max-height:90vh;overflow-y:auto;-webkit-overflow-scrolling:touch;background-size:cover;background-position:center}
     .modal h2{font-family:'DM Serif Display',Georgia,serif;font-size:20px;color:var(--indigo);margin-bottom:20px}
     @keyframes fadeIn{from{opacity:0}to{opacity:1}}
     @keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
 
-    /* ═══ LANDING ═════════════════════════════════ */
     #page-landing{min-height:100dvh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:40px 20px;position:relative;overflow-y:auto}
     .landing-bg{position:absolute;inset:0;opacity:.18;z-index:0;pointer-events:none}
     .landing-inner{position:relative;z-index:1;width:100%;max-width:800px;display:flex;flex-direction:column;gap:16px;animation:fadeUp .7s var(--tr) both}
@@ -103,8 +70,7 @@
     .landing-brand-text h1{font-family:'DM Serif Display',Georgia,serif;font-size:clamp(22px,3vw,30px);font-weight:400;color:var(--indigo);line-height:1.2}
     .landing-brand-text .tagline{font-size:14px;color:var(--text-muted);font-weight:500;margin-top:4px}
     .landing-cta{display:inline-flex;align-items:center;gap:10px;background:var(--indigo);color:white;border:none;border-radius:50px;padding:16px 32px;font-family:inherit;font-size:16px;font-weight:600;cursor:pointer;text-decoration:none;transition:all var(--tr);box-shadow:0 6px 24px rgba(58,58,140,.30);white-space:nowrap;flex-shrink:0}
-    .landing-cta:hover{background:var(--indigo-light);transform:translateY(-2px);box-shadow:0 10px 32px rgba(58,58,140,.40)}
-    .landing-cta:active{transform:scale(.97)}
+    .landing-cta:hover{background:var(--indigo-light);transform:translateY(-2px);box-shadow:0 10px 32px rgba(58,58,140,.40)}.landing-cta:active{transform:scale(.97)}
     .landing-body{display:grid;grid-template-columns:1fr 1fr;gap:0;background:transparent}
     .landing-section{padding:32px 40px 36px;background:transparent}
     .landing-section--left{border-right:1px solid rgba(58,58,140,.15)}
@@ -130,7 +96,6 @@
     .admin-trigger{opacity:.25;cursor:default;font-size:12px;padding:6px;border-radius:50%;transition:opacity .4s ease;user-select:none;-webkit-user-select:none}
     .admin-trigger:hover{opacity:.5;cursor:pointer}
 
-    /* ═══ BOOKING ═════════════════════════════════ */
     #page-booking{display:none;min-height:100dvh;overflow-y:auto;-webkit-overflow-scrolling:touch;padding:env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left)}
     .bk-header{text-align:center;padding:28px 20px 16px;color:white}
     .bk-header h1{font-family:'DM Serif Display',Georgia,serif;font-size:clamp(20px,3.5vw,28px);font-weight:400;margin-bottom:4px}
@@ -149,14 +114,13 @@
     .bk-col-head{padding:14px 12px;text-align:center;background:var(--indigo);color:white;font-weight:700;font-size:14px}
     .bk-col-date{font-size:12px;font-weight:500;opacity:.75;margin-top:2px}
     .bk-col-body{padding:8px;display:flex;flex-direction:column;gap:5px;min-height:200px}
-    .bk-slot{padding:12px 10px;border-radius:var(--radius-sm);text-align:center;font-size:15px;font-weight:600;cursor:pointer;transition:all var(--tr);border:1.5px solid transparent;min-height:44px;display:flex;align-items:center;justify-content:center}
+    .bk-slot{padding:12px 10px;border-radius:var(--radius-sm);text-align:center;font-size:15px;font-weight:600;cursor:pointer;transition:all var(--tr);border:1.5px solid transparent;min-height:44px;display:flex;align-items:center;justify-content:center;flex-direction:column}
     .bk-slot.free{background:rgba(39,174,96,.1);border-color:rgba(39,174,96,.3);color:var(--success)}
     .bk-slot.free:hover{background:var(--success);color:white;border-color:var(--success);transform:scale(1.03);box-shadow:0 4px 12px rgba(39,174,96,.3)}
     .bk-slot.booked{background:rgba(192,57,43,.06);border-color:rgba(192,57,43,.2);color:var(--danger);font-size:13px;cursor:pointer}
     .bk-slot.booked:hover{background:rgba(192,57,43,.12);border-color:rgba(192,57,43,.4);transform:scale(1.02)}
     .bk-slot.past{background:rgba(192,196,224,.15);color:var(--border);cursor:default;opacity:.35;font-size:13px}
     .bk-slot .bk-wl-hint{font-size:10px;display:block;margin-top:2px;opacity:.7}
-
     .bk-modal-info{background:var(--indigo-pale);border-radius:var(--radius-sm);padding:16px;margin-bottom:20px;text-align:center}
     .bk-modal-info .bk-mi-date{font-size:22px;font-weight:700;color:var(--indigo)}
     .bk-modal-info .bk-mi-time{font-size:18px;color:var(--indigo-light);margin-top:2px}
@@ -165,31 +129,21 @@
     .bk-treat:hover{border-color:var(--indigo);background:var(--indigo-pale)}
     .bk-treat.selected{background:var(--indigo);color:white;border-color:var(--indigo)}
     .bk-treat.selected .bk-treat-dur{color:rgba(255,255,255,.7)}
-    .bk-treat-name{font-weight:600;font-size:15px}
-    .bk-treat-dur{font-size:13px;color:var(--text-muted)}
+    .bk-treat-name{font-weight:600;font-size:15px}.bk-treat-dur{font-size:13px;color:var(--text-muted)}
     .bk-confirm-box{text-align:center;padding:32px 16px}
     .bk-confirm-box .checkmark{font-size:48px;margin-bottom:12px}
     .bk-confirm-box h2{font-family:'DM Serif Display',Georgia,serif;color:var(--indigo);margin-bottom:6px}
     .bk-confirm-box p{color:var(--text-muted);font-size:14px;margin-bottom:16px}
 
-    /* Warteliste */
     .wl-card{padding:16px;margin-bottom:10px;display:flex;justify-content:space-between;align-items:flex-start;gap:14px;flex-wrap:wrap}
-    .wl-info{flex:1;min-width:200px}
-    .wl-name{font-weight:700;font-size:15px;color:var(--indigo)}
-    .wl-detail{font-size:13px;color:var(--text-muted);margin-top:4px;line-height:1.6}
-    .wl-detail span{display:inline-block;margin-right:12px}
+    .wl-info{flex:1;min-width:200px}.wl-name{font-weight:700;font-size:15px;color:var(--indigo)}
+    .wl-detail{font-size:13px;color:var(--text-muted);margin-top:4px;line-height:1.6}.wl-detail span{display:inline-block;margin-right:12px}
     .wl-date{font-size:11px;color:var(--border);margin-top:6px}
     .wl-actions{display:flex;gap:6px;flex-shrink:0;align-items:flex-start}
     .wl-badge{display:inline-block;padding:3px 10px;border-radius:50px;font-size:11px;font-weight:700}
-    .wl-badge.neu{background:rgba(243,156,18,.15);color:var(--warning)}
-    .wl-badge.kontaktiert{background:rgba(39,174,96,.12);color:var(--success)}
+    .wl-badge.neu{background:rgba(243,156,18,.15);color:var(--warning)}.wl-badge.kontaktiert{background:rgba(39,174,96,.12);color:var(--success)}
     .wl-empty{text-align:center;padding:40px;color:var(--text-muted);font-size:14px}
 
-    .wc-wl{padding:6px 8px;background:rgba(243,156,18,.12);border-left:3px solid var(--warning);border-radius:8px;margin-bottom:5px;font-size:11px}
-    .wc-wl .wc-name{font-weight:600;color:var(--warning)}
-    .wc-wl .wc-info{color:var(--text-muted);font-size:10px;margin-top:1px}
-
-    /* ═══ ADMIN ═══════════════════════════════════ */
     #page-admin{display:none;height:100dvh;padding:env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left)}
     .admin-layout{display:grid;grid-template-columns:280px 1fr;grid-template-rows:auto 1fr;height:100%;overflow:hidden;background:var(--cream);background-size:cover;background-position:center}
     .admin-header{grid-column:1/-1;display:flex;align-items:center;justify-content:space-between;padding:10px 20px;gap:12px;z-index:10;border-radius:0}
@@ -199,23 +153,18 @@
     .admin-brand span{font-size:11px;opacity:.7;display:block}
     .admin-tabs{display:flex;gap:4px}
     .admin-tab{padding:8px 16px;border-radius:50px;font-size:13px;font-weight:600;cursor:pointer;transition:all var(--tr);background:rgba(255,255,255,.1);color:rgba(255,255,255,.7);border:none}
-    .admin-tab:hover{background:rgba(255,255,255,.2)}
-    .admin-tab.active{background:rgba(255,255,255,.25);color:white}
+    .admin-tab:hover{background:rgba(255,255,255,.2)}.admin-tab.active{background:rgba(255,255,255,.25);color:white}
     .admin-sidebar{display:flex;flex-direction:column;border-right:1px solid var(--border);background:rgba(240,241,247,.85);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);overflow:hidden}
     .sidebar-header{padding:14px;border-bottom:1px solid var(--border)}
     .search-box{width:100%;padding:10px 14px 10px 34px;border:1.5px solid var(--border);border-radius:50px;font-size:14px;outline:none;background:rgba(255,255,255,.6) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' fill='none' stroke='%235a5a8a' stroke-width='2' viewBox='0 0 24 24'%3E%3Ccircle cx='11' cy='11' r='8'/%3E%3Cpath d='m21 21-4.35-4.35'/%3E%3C/svg%3E") 12px center no-repeat;transition:all var(--tr)}
     .search-box:focus{border-color:var(--indigo);background-color:rgba(255,255,255,.9)}
     .filter-bar{display:flex;gap:5px;padding:8px 14px;flex-wrap:wrap}
     .chip{padding:4px 10px;border-radius:50px;border:1px solid var(--border);background:rgba(255,255,255,.5);font-size:11px;font-weight:600;color:var(--text-muted);cursor:pointer;transition:all var(--tr)}
-    .chip:hover{background:var(--indigo-pale)}
-    .chip.active{background:var(--indigo);color:white;border-color:var(--indigo)}
+    .chip:hover{background:var(--indigo-pale)}.chip.active{background:var(--indigo);color:white;border-color:var(--indigo)}
     .kunde-list{flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch;list-style:none}
     .kunde-list li{padding:12px 16px;border-bottom:1px solid rgba(192,196,224,.35);cursor:pointer;transition:background var(--tr);display:flex;justify-content:space-between;align-items:center}
-    .kunde-list li:hover{background:rgba(232,233,245,.6)}
-    .kunde-list li.active{background:var(--indigo-pale);border-left:3px solid var(--indigo)}
-    .kl-name{font-weight:600;font-size:14px;color:var(--text)}
-    .kl-sub{font-size:11px;color:var(--text-muted);margin-top:2px}
-    .kl-flags{display:flex;gap:4px}
+    .kunde-list li:hover{background:rgba(232,233,245,.6)}.kunde-list li.active{background:var(--indigo-pale);border-left:3px solid var(--indigo)}
+    .kl-name{font-weight:600;font-size:14px;color:var(--text)}.kl-sub{font-size:11px;color:var(--text-muted);margin-top:2px}.kl-flags{display:flex;gap:4px}
     .sidebar-footer{padding:8px 14px;border-top:1px solid var(--border);font-size:11px;color:var(--text-muted);text-align:center}
     .sidebar-empty{flex:1;display:flex;align-items:center;justify-content:center;color:var(--text-muted);font-size:13px;padding:32px;text-align:center}
     .admin-main{overflow-y:auto;-webkit-overflow-scrolling:touch;padding:24px 28px}
@@ -232,19 +181,15 @@
     .detail-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:24px}
     .detail-card{padding:22px}
     .detail-card h3{font-family:'DM Serif Display',Georgia,serif;font-size:15px;color:var(--indigo);margin-bottom:12px;padding-bottom:6px;border-bottom:1px solid var(--indigo-pale)}
-    .detail-row{display:flex;justify-content:space-between;padding:5px 0;font-size:13px;border-bottom:1px solid rgba(192,196,224,.2)}
-    .detail-row:last-child{border:none}
+    .detail-row{display:flex;justify-content:space-between;padding:5px 0;font-size:13px;border-bottom:1px solid rgba(192,196,224,.2)}.detail-row:last-child{border:none}
     .dl{color:var(--text-muted);font-weight:500}.dv{font-weight:600;text-align:right}
     .termin-form{display:flex;gap:10px;margin-bottom:14px;flex-wrap:wrap;align-items:flex-end}
-    .termin-form .field{margin-bottom:0;flex:1;min-width:140px}
-    .termin-form .grow{flex:3}
+    .termin-form .field{margin-bottom:0;flex:1;min-width:140px}.termin-form .grow{flex:3}
     .termin-list{list-style:none;max-height:260px;overflow-y:auto;-webkit-overflow-scrolling:touch}
     .termin-item{display:flex;justify-content:space-between;align-items:center;padding:10px 14px;background:rgba(255,255,255,.4);border-radius:var(--radius-sm);margin-bottom:6px;border:1px solid rgba(192,196,224,.3);transition:background var(--tr)}
     .termin-item:hover{background:rgba(255,255,255,.7)}
-    .t-datum{font-weight:700;color:var(--indigo);font-size:13px;min-width:80px}
-    .t-notiz{flex:1;margin-left:12px;font-size:13px}
-    .t-del{padding:4px 10px;background:none;border:1px solid var(--danger);color:var(--danger);border-radius:50px;font-size:11px;cursor:pointer;font-weight:600;transition:all var(--tr)}
-    .t-del:hover{background:var(--danger);color:white}
+    .t-datum{font-weight:700;color:var(--indigo);font-size:13px;min-width:80px}.t-notiz{flex:1;margin-left:12px;font-size:13px}
+    .t-del{padding:4px 10px;background:none;border:1px solid var(--danger);color:var(--danger);border-radius:50px;font-size:11px;cursor:pointer;font-weight:600;transition:all var(--tr)}.t-del:hover{background:var(--danger);color:white}
     .week-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px;flex-wrap:wrap;gap:10px}
     .week-header h2{font-family:'DM Serif Display',Georgia,serif;color:var(--indigo)}
     .week-nav{display:flex;gap:6px}
@@ -254,11 +199,15 @@
     .week-col{border-radius:var(--radius);padding:14px;min-height:200px}
     .wc-head{font-weight:700;font-size:13px;color:var(--indigo)}
     .wc-date{font-size:11px;color:var(--text-muted);margin-bottom:10px;padding-bottom:6px;border-bottom:1px solid var(--indigo-pale)}
-    .wc-item{padding:8px 10px;background:var(--indigo-pale);border-radius:8px;margin-bottom:5px;font-size:12px;cursor:pointer;transition:background var(--tr)}
-    .wc-item:hover{background:var(--indigo-mid)}
-    .wc-item .wc-name{font-weight:600;color:var(--text)}
-    .wc-item .wc-info{color:var(--text-muted);font-size:11px;margin-top:2px}
-    .wc-empty{font-size:11px;color:var(--text-muted);font-style:italic}
+    .wc-slot{padding:8px 10px;border-radius:8px;margin-bottom:5px;font-size:12px;cursor:pointer;transition:all var(--tr)}
+    .wc-slot:hover{transform:translateY(-1px);box-shadow:0 2px 8px rgba(0,0,0,.1)}
+    .wc-slot.has-booking{background:var(--indigo-pale);border-left:3px solid var(--success)}
+    .wc-slot.is-free{background:rgba(255,255,255,.3);border-left:3px solid var(--border);opacity:.5}
+    .wc-slot.is-free:hover{opacity:.8}
+    .wc-slot .wc-time{font-weight:700;color:var(--indigo);font-size:13px}
+    .wc-slot .wc-name{font-weight:600;color:var(--text);font-size:12px;margin-top:2px}
+    .wc-slot .wc-info{color:var(--text-muted);font-size:11px;margin-top:1px}
+    .wc-slot .wc-wl-tag{font-size:10px;color:var(--warning);margin-top:3px;font-weight:600}
     .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:12px;margin-bottom:24px}
     .stat{padding:18px;text-align:center}
     .stat-n{font-size:28px;font-weight:700;color:var(--indigo);line-height:1;margin-bottom:4px}
@@ -268,8 +217,7 @@
     .export-box h3{font-family:'DM Serif Display',Georgia,serif;font-size:16px;color:var(--indigo);margin-bottom:6px}
     .export-box p{font-size:13px;color:var(--text-muted);line-height:1.6;margin-bottom:12px}
     .pw-msg{display:none;padding:8px 14px;border-radius:var(--radius-sm);font-size:12px;font-weight:600;margin-top:8px}
-    .pw-msg.ok{display:block;background:#d5f5e3;color:var(--success)}
-    .pw-msg.err{display:block;background:#fadbd8;color:var(--danger)}
+    .pw-msg.ok{display:block;background:#d5f5e3;color:var(--success)}.pw-msg.err{display:block;background:#fadbd8;color:var(--danger)}
 
     @media print{body{background:white!important}.admin-header,.admin-sidebar,.btn-group,.termin-form,.admin-tabs{display:none!important}.admin-layout{display:block!important}.admin-main{padding:0!important;overflow:visible!important}.glass,.form-section,.detail-card,.export-box{background:white!important;backdrop-filter:none!important;border:1px solid #ddd!important;break-inside:avoid}}
     @media(max-width:768px){.landing-body{grid-template-columns:1fr}.landing-section--left{border-right:none;border-bottom:1px solid rgba(58,58,140,.15)}.landing-header{padding:28px 24px 22px;flex-direction:column;align-items:stretch}.landing-cta{width:100%;justify-content:center}.landing-section{padding:24px}.bk-grid{grid-template-columns:1fr 1fr;gap:8px}.bk-col:nth-child(5){grid-column:1/-1}.admin-layout{grid-template-columns:1fr}.admin-sidebar{display:none;position:fixed;inset:0;z-index:100;border-right:none}.admin-sidebar.open{display:flex}.form-grid,.detail-grid,.export-grid,.week-grid{grid-template-columns:1fr}.admin-main{padding:18px 14px}.mobile-btn{display:inline-flex!important}}
@@ -280,7 +228,6 @@
 </head>
 <body>
 
-<!-- ═══ LANDING ═══════════════════════════════════════ -->
 <div id="page-landing">
   <div class="landing-bg" data-bg></div>
   <div class="landing-inner">
@@ -290,8 +237,7 @@
           <img class="landing-logo" data-logo src="" alt="Logo">
           <div class="landing-brand-text"><h1>Podologie Kos-Meier</h1><p class="tagline">Medizinische Fusspflege · Sissach</p></div>
         </div>
-        <a href="javascript:void(0)" class="landing-cta" onclick="Nav.showBooking()">
-          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>Termin buchen</a>
+        <a href="javascript:void(0)" class="landing-cta" onclick="Nav.showBooking()"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>Termin buchen</a>
       </div>
       <div class="landing-body">
         <div class="landing-section landing-section--left" style="animation:fadeUp .7s var(--tr) .15s both">
@@ -319,7 +265,6 @@
   </div>
 </div>
 
-<!-- ═══ BOOKING ═══════════════════════════════════════ -->
 <div id="page-booking">
   <div class="bk-header">
     <h1>📅 Termin buchen</h1>
@@ -337,13 +282,12 @@
     </div>
     <div class="bk-legend">
       <div class="bk-legend-item"><div class="bk-legend-dot" style="background:rgba(39,174,96,.15);border:1.5px solid rgba(39,174,96,.4)"></div> Frei – klicken zum Buchen</div>
-      <div class="bk-legend-item"><div class="bk-legend-dot" style="background:rgba(192,57,43,.08);border:1.5px solid rgba(192,57,43,.25)"></div> Belegt – klicken für Warteliste</div>
+      <div class="bk-legend-item"><div class="bk-legend-dot" style="background:rgba(192,57,43,.08);border:1.5px solid rgba(192,57,43,.25)"></div> Belegt – auf Warteliste setzen</div>
     </div>
     <div class="bk-grid" id="bk-grid"></div>
   </div>
 </div>
 
-<!-- ═══ ADMIN ═════════════════════════════════════════ -->
 <div id="page-admin">
   <div class="admin-layout" data-bg>
     <header class="admin-header glass-dark">
@@ -378,7 +322,6 @@
     </aside>
     <main class="admin-main" id="admin-main">
       <div class="view active" id="v-welcome"><div class="welcome"><h2>Willkommen</h2><p>Wähle einen Kunden oder erstelle einen neuen Eintrag.</p></div></div>
-
       <div class="view" id="v-week">
         <div class="week-header"><h2 id="week-title">📅 Wochenplan</h2>
           <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap">
@@ -387,7 +330,6 @@
           </div></div>
         <div class="week-grid" id="week-grid"></div>
       </div>
-
       <div class="view" id="v-warteliste">
         <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;flex-wrap:wrap;gap:10px">
           <h2 style="font-family:'DM Serif Display',Georgia,serif;color:var(--indigo)">🕐 Warteliste</h2>
@@ -395,9 +337,7 @@
         </div>
         <div id="warteliste-list"></div>
       </div>
-
       <div class="view" id="v-buchungen"><h2 style="font-family:'DM Serif Display',Georgia,serif;color:var(--indigo);margin-bottom:20px">📋 Online-Buchungen</h2><div id="buchungen-list"></div></div>
-
       <div class="view" id="v-form">
         <h2 id="form-title" style="font-family:'DM Serif Display',Georgia,serif;font-size:22px;color:var(--indigo);margin-bottom:20px">Neuer Kunde</h2>
         <input type="hidden" id="f-id">
@@ -419,7 +359,6 @@
             <div class="btn-group"><button class="btn btn-primary" onclick="Admin.saveKunde()">💾 Speichern</button><button class="btn btn-secondary" onclick="Admin.resetForm()">Leeren</button><button class="btn btn-secondary" onclick="window.print()">🖨 Drucken</button></div></div>
         </div>
       </div>
-
       <div class="view" id="v-detail">
         <div class="detail-header"><div><h2 class="detail-name" id="d-name"></h2><p class="detail-sub" id="d-sub"></p><div class="detail-flags" id="d-flags"></div></div>
           <div class="btn-group"><button class="btn btn-primary btn-sm" onclick="Admin.editKunde()">✏️ Bearbeiten</button><button class="btn btn-danger btn-sm" onclick="Admin.deleteKunde()">🗑 Löschen</button></div></div>
@@ -431,7 +370,6 @@
             <button class="btn btn-success btn-sm" onclick="Admin.addTermin()" style="align-self:flex-end">＋</button></div>
           <ul class="termin-list" id="termin-list"></ul></div>
       </div>
-
       <div class="view" id="v-export">
         <h2 style="font-family:'DM Serif Display',Georgia,serif;font-size:22px;color:var(--indigo);margin-bottom:20px">📊 Daten &amp; Einstellungen</h2>
         <div class="stats" id="stats-grid"></div>
@@ -449,7 +387,6 @@
 <div class="toast-container" id="toasts"></div>
 
 <script>
-/* ═══ DB ═══════════════════════════════════════════ */
 const DB={
   NAME:'PodologieDB',VER:3,
   open(){return new Promise((ok,fail)=>{const r=indexedDB.open(this.NAME,this.VER);
@@ -470,12 +407,10 @@ const DB={
   async clear(s){const db=await this.open();return new Promise((ok,fail)=>{const t=db.transaction(s,'readwrite');t.objectStore(s).clear();t.oncomplete=()=>ok();t.onerror=()=>fail(t.error)})},
   async setting(k,v){if(v!==undefined)return this.put('settings',{key:k,value:v});const r=await this.get('settings',k);return r?r.value:null},
   async migrate(){const c=await this.getAll('kunden');if(c.length>0)return;let n=0;
-    for(let i=0;i<localStorage.length;i++){const k=localStorage.key(i);
-      if(k.startsWith('kunde_')){try{const d=JSON.parse(localStorage.getItem(k));if(d&&d.id){await this.put('kunden',d);n++}}catch(e){}}}
+    for(let i=0;i<localStorage.length;i++){const k=localStorage.key(i);if(k.startsWith('kunde_')){try{const d=JSON.parse(localStorage.getItem(k));if(d&&d.id){await this.put('kunden',d);n++}}catch(e){}}}
     const pw=localStorage.getItem('app_passwort');if(pw)await this.setting('passwort',pw);if(n)console.log('Migriert:',n)}
 };
 
-/* ═══ HELPERS ═════════════════════════════════════ */
 const H={
   esc(s){if(!s)return'';const d=document.createElement('div');d.textContent=s;return d.innerHTML},
   fmt(s){if(!s)return'–';const p=s.split('-');return p.length===3?`${p[2]}.${p[1]}.${p[0]}`:s},
@@ -497,7 +432,6 @@ const TREATMENTS=[
 ];
 const SLOTS=['08:00','09:00','10:00','11:00','13:00','14:00','15:00','16:00'];
 
-/* ═══ NAV ════════════════════════════════════════ */
 const Nav={
   showLanding(){document.getElementById('page-landing').style.display='flex';document.getElementById('page-booking').style.display='none';document.getElementById('page-admin').style.display='none';document.body.style.overflow='hidden'},
   showBooking(){document.getElementById('page-landing').style.display='none';document.getElementById('page-booking').style.display='block';document.getElementById('page-admin').style.display='none';document.body.style.overflow='auto';Booking.init()},
@@ -528,23 +462,17 @@ function applyBg(){
 /* ═══ BOOKING ════════════════════════════════════ */
 const Booking={
   off:0,buchungen:[],warteliste:[],
-
   async init(){this.buchungen=await DB.getAll('buchungen');this.warteliste=await DB.getAll('warteliste');this.off=0;this.render()},
-
   nav(d){if(d===0)this.off=0;else this.off+=d;this.render()},
 
   async render(){
     this.buchungen=await DB.getAll('buchungen');this.warteliste=await DB.getAll('warteliste');
     const today=new Date();today.setHours(0,0,0,0);
-    const ref=new Date();ref.setDate(ref.getDate()+this.off*7);
-    const mon=H.monday(ref);const kw=H.kw(mon);
+    const ref=new Date();ref.setDate(ref.getDate()+this.off*7);const mon=H.monday(ref);const kw=H.kw(mon);
     const fri=new Date(mon);fri.setDate(fri.getDate()+4);
     document.getElementById('bk-week-title').textContent=`Woche ${kw}: ${H.fmt(mon.toISOString().split('T')[0])} – ${H.fmt(fri.toISOString().split('T')[0])}`;
-
     const booked=new Set(this.buchungen.map(b=>b.datum+'|'+b.zeit));
-    const g=document.getElementById('bk-grid');
-    let html='';
-
+    const g=document.getElementById('bk-grid');let html='';
     for(let i=0;i<5;i++){
       const d=new Date(mon);d.setDate(d.getDate()+i);const iso=d.toISOString().split('T')[0];const isPast=d<today;
       html+=`<div class="bk-col glass"><div class="bk-col-head">${H.days[i]}<div class="bk-col-date">${H.fmt(iso)}</div></div><div class="bk-col-body">`;
@@ -553,9 +481,8 @@ const Booking={
         if(isPast){
           html+=`<div class="bk-slot past">${slot}</div>`;
         }else if(booked.has(key)){
-          // Belegter Slot – klickbar für Warteliste
           const wlCount=this.warteliste.filter(w=>w.datum===iso&&w.zeit===slot).length;
-          html+=`<div class="bk-slot booked" onclick="Booking.openWaitlist('${iso}','${slot}')">${slot} – belegt${wlCount?`<span class="bk-wl-hint">🕐 ${wlCount} auf Warteliste</span>`:`<span class="bk-wl-hint">Antippen für Warteliste</span>`}</div>`;
+          html+=`<div class="bk-slot booked" onclick="Booking.openWaitlist('${iso}','${slot}')">${slot} – belegt${wlCount?`<span class="bk-wl-hint">🕐 ${wlCount} auf Warteliste</span>`:`<span class="bk-wl-hint">Auf Warteliste</span>`}</div>`;
         }else{
           html+=`<div class="bk-slot free" onclick="Booking.openModal('${iso}','${slot}')">${slot}</div>`;
         }
@@ -566,8 +493,6 @@ const Booking={
   },
 
   selTreatment:null,
-
-  // Freien Slot buchen
   openModal(datum,zeit){
     this.selTreatment=null;
     const o=document.createElement('div');o.className='modal-overlay';o.id='bk-modal';
@@ -582,36 +507,28 @@ const Booking={
       <div class="btn-group" style="justify-content:space-between">
         <button class="btn btn-secondary" onclick="document.getElementById('bk-modal').remove()">Abbrechen</button>
         <button class="btn btn-success" onclick="Booking.confirm('${datum}','${zeit}')">✓ Termin bestätigen</button></div></div>`;
-    document.body.appendChild(o);applyBg();
-    setTimeout(()=>{const f=document.getElementById('bk-vorname');if(f)f.focus()},100);
+    document.body.appendChild(o);applyBg();setTimeout(()=>{const f=document.getElementById('bk-vorname');if(f)f.focus()},100);
   },
-
   pickTreat(id){this.selTreatment=id;document.querySelectorAll('#bk-treats .bk-treat').forEach(el=>{el.classList.toggle('selected',el.dataset.tid===id)})},
-
   async confirm(datum,zeit){
     const vn=document.getElementById('bk-vorname').value.trim(),nn=document.getElementById('bk-nachname').value.trim(),tel=document.getElementById('bk-telefon').value.trim();
     if(!vn||!nn||!tel){H.toast('Bitte Name und Telefon ausfüllen','error');return}
     if(!this.selTreatment){H.toast('Bitte Behandlung wählen','error');return}
     const t=TREATMENTS.find(x=>x.id===this.selTreatment);
-    const b={id:Date.now().toString(),datum,zeit,behandlung:t?t.name:'',behandlungId:this.selTreatment,
-      vorname:vn,nachname:nn,telefon:tel,email:document.getElementById('bk-email').value.trim(),
-      anmerkung:document.getElementById('bk-anmerkung').value.trim(),status:'bestätigt',erstellt:new Date().toISOString()};
+    const b={id:Date.now().toString(),datum,zeit,behandlung:t?t.name:'',behandlungId:this.selTreatment,vorname:vn,nachname:nn,telefon:tel,email:document.getElementById('bk-email').value.trim(),anmerkung:document.getElementById('bk-anmerkung').value.trim(),status:'bestätigt',erstellt:new Date().toISOString()};
     await DB.put('buchungen',b);this.buchungen.push(b);
-    const modal=document.querySelector('#bk-modal .modal');
-    modal.innerHTML=`<div class="bk-confirm-box"><div class="checkmark">✅</div><h2>Termin bestätigt!</h2><p>Vielen Dank, ${H.esc(vn)}.</p>
+    document.querySelector('#bk-modal .modal').innerHTML=`<div class="bk-confirm-box"><div class="checkmark">✅</div><h2>Termin bestätigt!</h2><p>Vielen Dank, ${H.esc(vn)}.</p>
       <div class="bk-modal-info"><div class="bk-mi-date">${H.fmt(datum)}</div><div class="bk-mi-time">${zeit} Uhr · ${t?t.name:''}</div></div>
       <button class="btn btn-primary" onclick="document.getElementById('bk-modal').remove();Booking.render()">Schliessen</button></div>`;
   },
 
-  // Warteliste-Modal für belegten Slot
   wlTreatment:null,
-
   openWaitlist(datum,zeit){
     this.wlTreatment=null;
     const o=document.createElement('div');o.className='modal-overlay';o.id='wl-modal';
     o.innerHTML=`<div class="modal" data-bg>
       <h2>🕐 Warteliste</h2>
-      <p style="font-size:14px;color:var(--text-muted);margin-bottom:16px">Dieser Termin ist belegt. Tragen Sie sich auf die Warteliste ein – wir melden uns, falls der Termin frei wird.</p>
+      <p style="font-size:14px;color:var(--text-muted);margin-bottom:16px">Dieser Termin ist belegt. Tragen Sie sich ein – wir melden uns, falls er frei wird.</p>
       <div class="bk-modal-info"><div class="bk-mi-date">${H.fmt(datum)}</div><div class="bk-mi-time">${zeit} Uhr</div></div>
       <div class="field"><label>Gewünschte Behandlung</label></div>
       <div class="bk-treat-grid" id="wl-treats">${TREATMENTS.map(t=>`<div class="bk-treat" data-tid="${t.id}" onclick="Booking.pickWlTreat('${t.id}')"><span class="bk-treat-name">${t.name}</span><span class="bk-treat-dur">${t.dur}</span></div>`).join('')}</div>
@@ -621,23 +538,15 @@ const Booking={
       <div class="btn-group" style="justify-content:space-between">
         <button class="btn btn-secondary" onclick="document.getElementById('wl-modal').remove()">Abbrechen</button>
         <button class="btn btn-primary" onclick="Booking.confirmWaitlist('${datum}','${zeit}')">🕐 Auf die Warteliste</button></div></div>`;
-    document.body.appendChild(o);applyBg();
-    setTimeout(()=>{const f=document.getElementById('wl-vorname');if(f)f.focus()},100);
+    document.body.appendChild(o);applyBg();setTimeout(()=>{const f=document.getElementById('wl-vorname');if(f)f.focus()},100);
   },
-
   pickWlTreat(id){this.wlTreatment=id;document.querySelectorAll('#wl-treats .bk-treat').forEach(el=>{el.classList.toggle('selected',el.dataset.tid===id)})},
-
   async confirmWaitlist(datum,zeit){
     const vn=document.getElementById('wl-vorname').value.trim(),nn=document.getElementById('wl-nachname').value.trim(),tel=document.getElementById('wl-telefon').value.trim();
     if(!vn||!nn||!tel){H.toast('Bitte Name und Telefon ausfüllen','error');return}
     const t=TREATMENTS.find(x=>x.id===this.wlTreatment);
-    const entry={id:Date.now().toString(),datum,zeit,vorname:vn,nachname:nn,telefon:tel,
-      behandlung:t?t.name:'',behandlungId:this.wlTreatment||'',
-      anmerkung:document.getElementById('wl-anmerkung').value.trim(),
-      status:'neu',erstellt:new Date().toISOString()};
-    await DB.put('warteliste',entry);this.warteliste.push(entry);
-    const modal=document.querySelector('#wl-modal .modal');
-    modal.innerHTML=`<div class="bk-confirm-box"><div class="checkmark">🕐</div><h2>Auf der Warteliste!</h2>
+    await DB.put('warteliste',{id:Date.now().toString(),datum,zeit,vorname:vn,nachname:nn,telefon:tel,behandlung:t?t.name:'',behandlungId:this.wlTreatment||'',anmerkung:document.getElementById('wl-anmerkung').value.trim(),status:'neu',erstellt:new Date().toISOString()});
+    document.querySelector('#wl-modal .modal').innerHTML=`<div class="bk-confirm-box"><div class="checkmark">🕐</div><h2>Auf der Warteliste!</h2>
       <p>Vielen Dank, ${H.esc(vn)}. Wir melden uns, sobald der Termin am <strong>${H.fmt(datum)}</strong> um <strong>${zeit} Uhr</strong> frei wird.</p>
       <button class="btn btn-primary" onclick="document.getElementById('wl-modal').remove();Booking.render()">Schliessen</button></div>`;
   }
@@ -647,13 +556,18 @@ const Booking={
 const Admin={
   kunden:[],current:null,filter:'all',weekOff:0,
   async init(){await this.loadKunden();this.weekOff=0;this.renderWeek();this.showTab('week')},
-  showTab(n){document.querySelectorAll('.view').forEach(v=>v.classList.remove('active'));
+
+  showTab(n){
+    document.querySelectorAll('.view').forEach(v=>v.classList.remove('active'));
     const v=document.getElementById('v-'+n);if(v)v.classList.add('active');
     document.querySelectorAll('.admin-tab').forEach(t=>t.classList.remove('active'));
     const t=document.querySelector(`.admin-tab[data-tab="${n}"]`);if(t)t.classList.add('active');
     if(n==='export')this.renderStats();if(n==='week')this.renderWeek();if(n==='buchungen')this.renderBuchungen();if(n==='warteliste')this.renderWarteliste();
-    document.getElementById('admin-sidebar').classList.remove('open')},
+    document.getElementById('admin-sidebar').classList.remove('open');
+  },
+
   async loadKunden(){this.kunden=await DB.getAll('kunden');this.kunden.sort((a,b)=>(a.name||'').localeCompare(b.name||''));this.renderList()},
+
   renderList(){
     const list=document.getElementById('kunde-list'),q=(document.getElementById('search-input').value||'').toLowerCase(),f=this.filter;
     let items=this.kunden.filter(k=>{if(q&&!`${k.name} ${k.vorname} ${k.ort}`.toLowerCase().includes(q))return false;if(f!=='all'&&k[f]!=='ja')return false;return true});
@@ -662,10 +576,14 @@ const Admin={
       if(k.diabetes==='ja')fl+='<span class="dot dot-diabetes"></span>';if(k.antikoaguliert==='ja')fl+='<span class="dot dot-antikoag"></span>';
       if(k.allergien==='ja')fl+='<span class="dot dot-allergien"></span>';if(k.hiv==='ja')fl+='<span class="dot dot-hiv"></span>';
       return`<li class="${a}" onclick="Admin.selectKunde('${k.id}')"><div><div class="kl-name">${H.esc(k.name)}, ${H.esc(k.vorname)}</div><div class="kl-sub">${H.esc(k.plz||'')} ${H.esc(k.ort||'')}</div></div><div class="kl-flags">${fl}</div></li>`}).join('');
-    document.getElementById('sidebar-footer').textContent=`${items.length} von ${this.kunden.length} Kunden`},
+    document.getElementById('sidebar-footer').textContent=`${items.length} von ${this.kunden.length} Kunden`;
+  },
+
   filterList(){this.renderList()},
   setFilter(f){this.filter=f;document.querySelectorAll('.chip').forEach(c=>c.classList.remove('active'));document.querySelector(`.chip[data-filter="${f}"]`).classList.add('active');this.renderList()},
+
   async selectKunde(id){const k=await DB.get('kunden',id);if(!k)return;this.current=k;this.renderDetail(k);this.showTab('detail');this.renderList();document.getElementById('admin-sidebar').classList.remove('open')},
+
   renderDetail(k){
     document.getElementById('d-name').textContent=`${k.name}, ${k.vorname}`;
     document.getElementById('d-sub').textContent=`${k.strasse||''} · ${k.plz||''} ${k.ort||''}`;
@@ -674,11 +592,15 @@ const Admin={
     document.getElementById('d-flags').innerHTML=fl;
     document.getElementById('d-personal').innerHTML=[['Telefon',k.telefon],['Mobil',k.mobil],['Geburtsdatum',k.geburtsdatum?H.fmt(k.geburtsdatum):'–'],['Empfohlen',k.empfohlen||'–']].map(([l,v])=>`<div class="detail-row"><span class="dl">${l}</span><span class="dv">${H.esc(v||'–')}</span></div>`).join('');
     document.getElementById('d-medical').innerHTML=[['Diabetes',k.diabetes],['Antikoaguliert',k.antikoaguliert],['Allergien',k.allergien],['HIV-positiv',k.hiv]].map(([l,v])=>`<div class="detail-row"><span class="dl">${l}</span><span class="dv">${v==='ja'?'<span style="color:var(--danger);font-weight:700">Ja</span>':'<span style="color:var(--success)">Nein</span>'}</span></div>`).join('');
-    document.getElementById('d-notizen').textContent=k.notizen||'–';this.renderTermine(k)},
+    document.getElementById('d-notizen').textContent=k.notizen||'–';this.renderTermine(k);
+  },
+
   resetForm(){document.getElementById('f-id').value='';
     ['f-name','f-vorname','f-strasse','f-plz','f-ort','f-telefon','f-mobil','f-gebdat','f-empfohlen','f-notizen'].forEach(id=>document.getElementById(id).value='');
     ['f-diabetes','f-antikoag','f-allergien','f-hiv'].forEach(n=>{const r=document.querySelector(`input[name="${n}"][value="nein"]`);if(r)r.checked=true});
-    document.getElementById('form-title').textContent='Neuer Kunde'},
+    document.getElementById('form-title').textContent='Neuer Kunde';
+  },
+
   editKunde(){if(!this.current)return;const k=this.current;document.getElementById('f-id').value=k.id;
     document.getElementById('f-name').value=k.name||'';document.getElementById('f-vorname').value=k.vorname||'';
     document.getElementById('f-strasse').value=k.strasse||'';document.getElementById('f-plz').value=k.plz||'';
@@ -686,7 +608,9 @@ const Admin={
     document.getElementById('f-mobil').value=k.mobil||'';document.getElementById('f-gebdat').value=k.geburtsdatum||'';
     document.getElementById('f-empfohlen').value=k.empfohlen||'';document.getElementById('f-notizen').value=k.notizen||'';
     ['diabetes','antikoag','allergien','hiv'].forEach(f=>{const key=f==='antikoag'?'antikoaguliert':f;const r=document.querySelector(`input[name="f-${f}"][value="${k[key]||'nein'}"]`);if(r)r.checked=true});
-    document.getElementById('form-title').textContent='Kunde bearbeiten';this.showTab('form')},
+    document.getElementById('form-title').textContent='Kunde bearbeiten';this.showTab('form');
+  },
+
   async saveKunde(){const name=document.getElementById('f-name').value.trim(),vorname=document.getElementById('f-vorname').value.trim();
     if(!name||!vorname){H.toast('Name und Vorname eingeben','error');return}
     const id=document.getElementById('f-id').value||Date.now().toString();const ex=await DB.get('kunden',id);
@@ -696,43 +620,149 @@ const Admin={
       empfohlen:document.getElementById('f-empfohlen').value.trim(),diabetes:H.radio('f-diabetes'),antikoaguliert:H.radio('f-antikoag'),
       allergien:H.radio('f-allergien'),hiv:H.radio('f-hiv'),notizen:document.getElementById('f-notizen').value.trim(),
       termine:ex?(ex.termine||[]):[],erstellt:ex?ex.erstellt:new Date().toISOString(),geaendert:new Date().toISOString()};
-    await DB.put('kunden',k);await this.loadKunden();this.current=k;this.renderDetail(k);this.showTab('detail');H.toast('✅ Gespeichert')},
+    await DB.put('kunden',k);await this.loadKunden();this.current=k;this.renderDetail(k);this.showTab('detail');H.toast('✅ Gespeichert');
+  },
+
   async deleteKunde(){if(!this.current||!confirm(`"${this.current.name}, ${this.current.vorname}" löschen?`))return;
     await DB.del('kunden',this.current.id);this.current=null;await this.loadKunden();this.showTab('welcome');H.toast('🗑 Gelöscht')},
+
   renderTermine(k){const l=document.getElementById('termin-list');const t=(k.termine||[]).sort((a,b)=>b.datum.localeCompare(a.datum));
     if(!t.length){l.innerHTML='<p style="color:var(--text-muted);font-size:13px;font-style:italic;padding:10px">Keine Termine</p>';return}
-    l.innerHTML=t.map((x,i)=>`<li class="termin-item"><span class="t-datum">${H.fmt(x.datum)}</span><span class="t-notiz">${H.esc(x.notiz||'–')}</span><button class="t-del" onclick="Admin.delTermin(${i})">✕</button></li>`).join('')},
+    l.innerHTML=t.map((x,i)=>`<li class="termin-item"><span class="t-datum">${H.fmt(x.datum)}</span><span class="t-notiz">${H.esc(x.notiz||'–')}</span><button class="t-del" onclick="Admin.delTermin(${i})">✕</button></li>`).join('');
+  },
+
   async addTermin(){if(!this.current)return;const d=document.getElementById('t-datum').value;if(!d){H.toast('Datum eingeben','error');return}
     if(!this.current.termine)this.current.termine=[];this.current.termine.push({id:Date.now().toString(),datum:d,notiz:document.getElementById('t-notiz').value.trim()});
     await DB.put('kunden',this.current);this.renderTermine(this.current);document.getElementById('t-datum').value='';document.getElementById('t-notiz').value='';H.toast('✅ Termin gespeichert')},
+
   async delTermin(i){if(!this.current)return;const sorted=[...(this.current.termine||[])].sort((a,b)=>b.datum.localeCompare(a.datum));
     const del=sorted[i];if(!del)return;this.current.termine=this.current.termine.filter(t=>t.id!==del.id);await DB.put('kunden',this.current);this.renderTermine(this.current);H.toast('Termin gelöscht')},
 
-  // Wochenplan mit Warteliste
+  /* ── Wochenplan (Slot-basiert mit Warteliste) ── */
   weekNav(d){if(d===0)this.weekOff=0;else this.weekOff+=d;this.renderWeek()},
+
   async renderWeek(){
-    const today=new Date();today.setDate(today.getDate()+this.weekOff*7);const mon=H.monday(today);
-    const kunden=await DB.getAll('kunden'),buch=await DB.getAll('buchungen'),wl=await DB.getAll('warteliste'),g=document.getElementById('week-grid');
-    const kw=H.kw(mon);document.getElementById('week-title').textContent=`📅 KW ${kw} — ${H.fmt(mon.toISOString().split('T')[0])}`;
-    let html='';for(let i=0;i<5;i++){const d=new Date(mon);d.setDate(d.getDate()+i);const iso=d.toISOString().split('T')[0];let items=[];
-      kunden.forEach(k=>(k.termine||[]).forEach(t=>{if(t.datum===iso)items.push({name:`${k.name}, ${k.vorname}`,info:t.notiz,id:k.id,type:'kunde'})}));
-      buch.forEach(b=>{if(b.datum===iso)items.push({name:`${b.nachname}, ${b.vorname}`,info:`${b.zeit} · ${b.behandlung}`,id:b.id,type:'buchung'})});
-      items.sort((a,b)=>(a.info||'').localeCompare(b.info||''));
+    const today=new Date();today.setDate(today.getDate()+this.weekOff*7);
+    const mon=H.monday(today);
+    const buch=await DB.getAll('buchungen');
+    const wl=await DB.getAll('warteliste');
+    const g=document.getElementById('week-grid');
+    const kw=H.kw(mon);
+    document.getElementById('week-title').textContent=`📅 KW ${kw} — ${H.fmt(mon.toISOString().split('T')[0])}`;
 
-      // Wartelisten-Einträge für diesen Tag
-      const dayWl=wl.filter(w=>w.datum===iso);
+    let html='';
+    for(let i=0;i<5;i++){
+      const d=new Date(mon);d.setDate(d.getDate()+i);
+      const iso=d.toISOString().split('T')[0];
+      html+=`<div class="week-col glass"><div class="wc-head">${H.days[i]}</div><div class="wc-date">${H.fmt(iso)}</div>`;
 
-      html+=`<div class="week-col glass"><div class="wc-head">${H.days[i]}</div><div class="wc-date">${H.fmt(iso)}</div>
-        ${items.length?items.map(it=>`<div class="wc-item" onclick="${it.type==='kunde'?`Admin.selectKunde('${it.id}')`:''}" style="${it.type==='buchung'?'border-left:3px solid var(--success)':''}">
-          <div class="wc-name">${H.esc(it.name)}</div>${it.info?`<div class="wc-info">${H.esc(it.info)}</div>`:''}</div>`).join(''):'<div class="wc-empty">Keine Termine</div>'}
-        ${dayWl.length?dayWl.map(w=>`<div class="wc-wl" title="Warteliste: ${H.esc(w.vorname)} ${H.esc(w.nachname)}">
-          <div class="wc-name">🕐 ${H.esc(w.nachname)}, ${H.esc(w.vorname)}</div>
-          <div class="wc-info">${w.zeit} · ${H.esc(w.behandlung||'Offen')} · 📞 ${H.esc(w.telefon)}</div>
-        </div>`).join(''):''}
-      </div>`}
-    g.innerHTML=html},
+      for(const slot of SLOTS){
+        const slotBuch=buch.filter(b=>b.datum===iso&&b.zeit===slot);
+        const slotWl=wl.filter(w=>w.datum===iso&&w.zeit===slot);
+        const hasBuchung=slotBuch.length>0;
 
-  // Warteliste-Ansicht
+        html+=`<div class="wc-slot ${hasBuchung?'has-booking':'is-free'}" onclick="Admin.openSlotModal('${iso}','${slot}')">`;
+        html+=`<div style="display:flex;justify-content:space-between;align-items:center"><span class="wc-time">${slot}</span>`;
+        if(slotWl.length) html+=`<span style="background:var(--warning);color:white;font-size:9px;font-weight:700;padding:1px 6px;border-radius:50px">🕐 ${slotWl.length}</span>`;
+        html+=`</div>`;
+
+        if(hasBuchung){
+          slotBuch.forEach(b=>{
+            html+=`<div class="wc-name">${H.esc(b.nachname)}, ${H.esc(b.vorname)}</div>`;
+            html+=`<div class="wc-info">${H.esc(b.behandlung)}${b.anmerkung?' · '+H.esc(b.anmerkung):''}</div>`;
+          });
+        }else{
+          html+=`<div class="wc-info" style="font-style:italic">frei</div>`;
+        }
+
+        if(slotWl.length){
+          slotWl.forEach(w=>{
+            html+=`<div class="wc-wl-tag">🕐 ${H.esc(w.nachname)}, ${H.esc(w.vorname)} · 📞 ${H.esc(w.telefon)}${w.status==='kontaktiert'?' ✓':''}</div>`;
+          });
+        }
+        html+=`</div>`;
+      }
+      html+=`</div>`;
+    }
+    g.innerHTML=html;
+  },
+
+  /* ── Slot-Modal: volle Editierrechte ── */
+  async openSlotModal(datum,zeit){
+    const buch=(await DB.getAll('buchungen')).filter(b=>b.datum===datum&&b.zeit===zeit);
+    const wlItems=(await DB.getAll('warteliste')).filter(w=>w.datum===datum&&w.zeit===zeit);
+    const hasBuchung=buch.length>0;
+
+    let buchHtml='<p style="color:var(--text-muted);font-size:13px;font-style:italic">Kein Termin gebucht</p>';
+    if(hasBuchung){
+      buchHtml=buch.map(b=>`<div style="padding:12px;background:rgba(39,174,96,.08);border-left:3px solid var(--success);border-radius:8px;margin-bottom:8px">
+        <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px">
+          <div><strong>${H.esc(b.nachname)}, ${H.esc(b.vorname)}</strong><br>
+            <span style="font-size:13px;color:var(--text-muted)">${H.esc(b.behandlung)} · 📞 ${H.esc(b.telefon)}${b.anmerkung?' · 📝 '+H.esc(b.anmerkung):''}</span></div>
+          <button class="btn btn-danger btn-sm" onclick="Admin.delSlotBuchung('${b.id}','${datum}','${zeit}')">🗑 Stornieren</button>
+        </div></div>`).join('');
+    }
+
+    let wlHtml='<p style="color:var(--text-muted);font-size:13px;font-style:italic">Keine Einträge</p>';
+    if(wlItems.length){
+      wlHtml=wlItems.map(w=>{
+        const badge=w.status==='kontaktiert'?'<span class="wl-badge kontaktiert">✓ Kontaktiert</span>':'<span class="wl-badge neu">Neu</span>';
+        return`<div style="padding:10px;background:rgba(243,156,18,.08);border-left:3px solid var(--warning);border-radius:8px;margin-bottom:8px">
+          <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:8px">
+            <div><strong>${H.esc(w.nachname)}, ${H.esc(w.vorname)}</strong> ${badge}<br>
+              <span style="font-size:12px;color:var(--text-muted)">${H.esc(w.behandlung||'Offen')} · 📞 ${H.esc(w.telefon)}${w.anmerkung?' · 📝 '+H.esc(w.anmerkung):''}</span></div>
+            <div class="btn-group">${w.status!=='kontaktiert'?`<button class="btn btn-success btn-sm" onclick="Admin.markWlFromSlot('${w.id}','${datum}','${zeit}')">✓</button>`:''}
+              <button class="btn btn-danger btn-sm" onclick="Admin.delWlFromSlot('${w.id}','${datum}','${zeit}')">✕</button></div>
+          </div></div>`;
+      }).join('');
+    }
+
+    const o=document.createElement('div');o.className='modal-overlay';o.id='slot-modal';
+    o.innerHTML=`<div class="modal" data-bg>
+      <h2>📅 ${H.fmt(datum)} · ${zeit} Uhr</h2>
+      <h3 style="font-family:'DM Serif Display',Georgia,serif;font-size:16px;color:var(--success);margin-bottom:10px">Buchung</h3>
+      ${buchHtml}
+      ${!hasBuchung?`<button class="btn btn-primary btn-sm" style="margin:10px 0" onclick="document.getElementById('slot-modal').remove();Admin.openSlotBook('${datum}','${zeit}')">＋ Termin manuell eintragen</button>`:''}
+      <h3 style="font-family:'DM Serif Display',Georgia,serif;font-size:16px;color:var(--warning);margin:20px 0 10px">🕐 Warteliste (${wlItems.length})</h3>
+      ${wlHtml}
+      <div class="btn-group" style="margin-top:20px;justify-content:flex-end">
+        <button class="btn btn-secondary" onclick="document.getElementById('slot-modal').remove()">Schliessen</button></div></div>`;
+    document.body.appendChild(o);applyBg();
+  },
+
+  async openSlotBook(datum,zeit){
+    const o=document.createElement('div');o.className='modal-overlay';o.id='slot-book-modal';
+    o.innerHTML=`<div class="modal" data-bg>
+      <h2>＋ Termin eintragen</h2>
+      <div class="bk-modal-info"><div class="bk-mi-date">${H.fmt(datum)}</div><div class="bk-mi-time">${zeit} Uhr</div></div>
+      <div class="field"><label>Behandlung</label></div>
+      <div class="bk-treat-grid" id="admin-treats">${TREATMENTS.map(t=>`<div class="bk-treat" data-tid="${t.id}" onclick="Admin.pickSlotTreat('${t.id}')"><span class="bk-treat-name">${t.name}</span><span class="bk-treat-dur">${t.dur}</span></div>`).join('')}</div>
+      <div class="field-row"><div class="field"><label>Vorname *</label><input id="sb-vorname"></div><div class="field"><label>Nachname *</label><input id="sb-nachname"></div></div>
+      <div class="field"><label>Telefon *</label><input id="sb-telefon" type="tel"></div>
+      <div class="field"><label>Anmerkung</label><textarea id="sb-anmerkung" rows="2" style="min-height:50px"></textarea></div>
+      <div class="btn-group" style="justify-content:space-between">
+        <button class="btn btn-secondary" onclick="document.getElementById('slot-book-modal').remove()">Abbrechen</button>
+        <button class="btn btn-success" onclick="Admin.confirmSlotBook('${datum}','${zeit}')">✓ Eintragen</button></div></div>`;
+    document.body.appendChild(o);applyBg();setTimeout(()=>{const f=document.getElementById('sb-vorname');if(f)f.focus()},100);
+  },
+
+  slotTreat:null,
+  pickSlotTreat(id){this.slotTreat=id;document.querySelectorAll('#admin-treats .bk-treat').forEach(el=>{el.classList.toggle('selected',el.dataset.tid===id)})},
+
+  async confirmSlotBook(datum,zeit){
+    const vn=document.getElementById('sb-vorname').value.trim(),nn=document.getElementById('sb-nachname').value.trim(),tel=document.getElementById('sb-telefon').value.trim();
+    if(!vn||!nn||!tel){H.toast('Name und Telefon eingeben','error');return}
+    const t=TREATMENTS.find(x=>x.id===this.slotTreat);
+    await DB.put('buchungen',{id:Date.now().toString(),datum,zeit,behandlung:t?t.name:'',behandlungId:this.slotTreat||'',
+      vorname:vn,nachname:nn,telefon:tel,email:'',anmerkung:document.getElementById('sb-anmerkung').value.trim(),status:'bestätigt',erstellt:new Date().toISOString()});
+    document.getElementById('slot-book-modal').remove();this.renderWeek();H.toast('✅ Termin eingetragen');
+  },
+
+  async delSlotBuchung(id,datum,zeit){if(!confirm('Buchung stornieren?'))return;await DB.del('buchungen',id);document.getElementById('slot-modal').remove();this.renderWeek();H.toast('Buchung storniert')},
+  async markWlFromSlot(id,datum,zeit){const e=await DB.get('warteliste',id);if(!e)return;e.status='kontaktiert';e.kontaktiert=new Date().toISOString();await DB.put('warteliste',e);document.getElementById('slot-modal').remove();this.openSlotModal(datum,zeit);H.toast('✓ Kontaktiert')},
+  async delWlFromSlot(id,datum,zeit){if(!confirm('Eintrag löschen?'))return;await DB.del('warteliste',id);document.getElementById('slot-modal').remove();this.openSlotModal(datum,zeit);H.toast('Gelöscht')},
+
+  /* ── Warteliste-View ── */
   async renderWarteliste(){
     const wl=(await DB.getAll('warteliste')).sort((a,b)=>a.datum.localeCompare(b.datum)||a.zeit.localeCompare(b.zeit));
     const el=document.getElementById('warteliste-list');
@@ -743,22 +773,22 @@ const Admin={
         <div class="wl-info">
           <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap"><span class="wl-name">${H.esc(w.nachname)}, ${H.esc(w.vorname)}</span>${badge}</div>
           <div class="wl-detail">
-            <span>📅 ${H.fmt(w.datum)} um ${w.zeit} Uhr</span>
-            <span>📞 ${H.esc(w.telefon)}</span>
-            ${w.behandlung?`<span>💆 ${H.esc(w.behandlung)}</span>`:''}
-            ${w.anmerkung?`<br><span>📝 ${H.esc(w.anmerkung)}</span>`:''}
+            <span>📅 ${H.fmt(w.datum)} um ${w.zeit} Uhr</span><span>📞 ${H.esc(w.telefon)}</span>
+            ${w.behandlung?`<span>💆 ${H.esc(w.behandlung)}</span>`:''}${w.anmerkung?`<br><span>📝 ${H.esc(w.anmerkung)}</span>`:''}
           </div>
           <div class="wl-date">Eingetragen: ${H.fmt(w.erstellt.split('T')[0])}</div>
         </div>
         <div class="wl-actions">
           ${w.status!=='kontaktiert'?`<button class="btn btn-success btn-sm" onclick="Admin.markWlContacted('${w.id}')">✓ Kontaktiert</button>`:''}
           <button class="btn btn-danger btn-sm" onclick="Admin.deleteWlEntry('${w.id}')">✕</button>
-        </div></div>`}).join('')},
+        </div></div>`}).join('');
+  },
 
-  async markWlContacted(id){const e=await DB.get('warteliste',id);if(!e)return;e.status='kontaktiert';e.kontaktiert=new Date().toISOString();await DB.put('warteliste',e);this.renderWarteliste();this.renderWeek();H.toast('✓ Als kontaktiert markiert')},
-  async deleteWlEntry(id){if(!confirm('Wartelisten-Eintrag löschen?'))return;await DB.del('warteliste',id);this.renderWarteliste();this.renderWeek();H.toast('Eintrag gelöscht')},
-  async exportWaitlistJSON(){const wl=await DB.getAll('warteliste');const b=new Blob([JSON.stringify({app:'Podologie Warteliste',date:new Date().toISOString(),warteliste:wl},null,2)],{type:'application/json'});const a=document.createElement('a');a.href=URL.createObjectURL(b);a.download='warteliste-export.json';a.click();H.toast(`✅ ${wl.length} Einträge exportiert`)},
+  async markWlContacted(id){const e=await DB.get('warteliste',id);if(!e)return;e.status='kontaktiert';e.kontaktiert=new Date().toISOString();await DB.put('warteliste',e);this.renderWarteliste();this.renderWeek();H.toast('✓ Kontaktiert')},
+  async deleteWlEntry(id){if(!confirm('Eintrag löschen?'))return;await DB.del('warteliste',id);this.renderWarteliste();this.renderWeek();H.toast('Gelöscht')},
+  async exportWaitlistJSON(){const wl=await DB.getAll('warteliste');const b=new Blob([JSON.stringify({app:'Podologie Warteliste',date:new Date().toISOString(),warteliste:wl},null,2)],{type:'application/json'});const a=document.createElement('a');a.href=URL.createObjectURL(b);a.download='warteliste-export.json';a.click();H.toast(`✅ ${wl.length} exportiert`)},
 
+  /* ── Buchungen ── */
   async renderBuchungen(){const buch=(await DB.getAll('buchungen')).sort((a,b)=>b.datum.localeCompare(a.datum)||b.zeit.localeCompare(a.zeit));const el=document.getElementById('buchungen-list');
     if(!buch.length){el.innerHTML='<p style="color:var(--text-muted)">Keine Buchungen.</p>';return}
     el.innerHTML=`<table style="width:100%;border-collapse:collapse;font-size:13px"><thead><tr style="border-bottom:2px solid var(--indigo-pale);text-align:left">
@@ -770,6 +800,7 @@ const Admin={
       <td style="padding:8px"><button class="t-del" onclick="Admin.delBuchung('${b.id}')">✕</button></td></tr>`).join('')}</tbody></table>`},
   async delBuchung(id){if(!confirm('Buchung löschen?'))return;await DB.del('buchungen',id);this.renderBuchungen();this.renderWeek();H.toast('Gelöscht')},
 
+  /* ── Export / Import ── */
   async exportWeekJSON(){const data={app:'Podologie KW-Export',date:new Date().toISOString(),kunden:await DB.getAll('kunden'),buchungen:await DB.getAll('buchungen'),warteliste:await DB.getAll('warteliste')};
     const b=new Blob([JSON.stringify(data,null,2)],{type:'application/json'});const a=document.createElement('a');a.href=URL.createObjectURL(b);a.download='podologie-kw-export.json';a.click();H.toast('✅ Exportiert')},
   async importWeekJSON(input){const f=input.files[0];if(!f)return;try{const d=JSON.parse(await f.text());let n=0;
@@ -786,7 +817,7 @@ const Admin={
 
   async exportJSON(){const d={app:'Podologie Kos-Meier',version:3,date:new Date().toISOString(),kunden:await DB.getAll('kunden'),buchungen:await DB.getAll('buchungen'),warteliste:await DB.getAll('warteliste')};
     const b=new Blob([JSON.stringify(d,null,2)],{type:'application/json'});const a=document.createElement('a');a.href=URL.createObjectURL(b);a.download='podologie-backup.json';a.click();
-    H.toast(`✅ ${d.kunden.length} Kunden + ${d.buchungen.length} Buchungen + ${d.warteliste.length} WL exportiert`)},
+    H.toast(`✅ ${d.kunden.length} Kunden + ${d.buchungen.length} Buchungen + ${d.warteliste.length} WL`)},
   async importJSON(input){const f=input.files[0];if(!f)return;try{const d=JSON.parse(await f.text());let n=0;
     if(d.kunden)for(const k of d.kunden){if(!await DB.get('kunden',k.id)){await DB.put('kunden',k);n++}}
     if(d.buchungen)for(const b of d.buchungen){if(!await DB.get('buchungen',b.id)){await DB.put('buchungen',b);n++}}
@@ -815,7 +846,6 @@ const Admin={
     await DB.clear('kunden');await DB.clear('buchungen');await DB.clear('warteliste');this.kunden=[];this.current=null;this.renderList();this.showTab('welcome');H.toast('🗑 Alles gelöscht')}
 };
 
-/* ═══ INIT ═══════════════════════════════════════ */
 document.addEventListener('DOMContentLoaded',async()=>{await DB.migrate();applyBg()});
 if('serviceWorker' in navigator)window.addEventListener('load',()=>navigator.serviceWorker.register('./sw.js').catch(()=>{}));
 </script>
